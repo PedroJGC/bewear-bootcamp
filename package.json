@@ -8,11 +8,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
     "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.1.0",
-    "drizzle-orm": "^0.44.2",
+    "drizzle-orm": "^0.44.4",
     "lucide-react": "^0.536.0",
     "next": "15.4.1",
     "pg": "^8.16.3",

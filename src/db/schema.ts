@@ -10,7 +10,7 @@ export const categoryTable = pgTable('category', {
   id: uuid().primaryKey().defaultRandom(),
   name: text().notNull(),
   slug: text().notNull().unique(),
-  createdAt: timestamp().notNull().defaultNow(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
 })
 
 export const categoryRelations = relations(categoryTable, ({ many }) => {
