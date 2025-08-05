@@ -66,7 +66,7 @@ export function SignUpForm() {
         onError: error => {
           if (error.error.code === 'USER_ALREADY_EXISTS') {
             toast.error('Email já cadastrado.')
-            form.setError('email', { message: 'Email já cadastrado.' })
+            return form.setError('email', { message: 'Email já cadastrado.' })
           }
           toast.error(error.error.message)
         },
