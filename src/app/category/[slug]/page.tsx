@@ -1,4 +1,5 @@
 import { eq } from 'drizzle-orm'
+import { notFound } from 'next/navigation'
 import Header from '@/components/common/header'
 import ProductItem from '@/components/common/product-item'
 import { db } from '@/db'
@@ -15,7 +16,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   })
 
   if (!category) {
-    return <div>Category not found</div>
+    return notFound
   }
 
   const products = await db.query.productTable.findMany({
