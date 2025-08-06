@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { db } from '@/db'
 import { productTable, productVariantTable } from '@/db/schema'
 import { formatCentsToBRL } from '@/helpers/money'
+import VariantSelector from './components/variant-selector'
 
 interface ProductVariantPageProps {
   params: Promise<{ slug: string }>
@@ -19,7 +20,13 @@ export default async function ProductVariantPage({
   const { slug } = await params
   const productVariant = await db.query.productVariantTable.findFirst({
     where: eq(productVariantTable.slug, slug),
-    with: { product: true },
+    with: {
+      product: {
+        with: {
+          variants: true,
+        },
+      },
+    },
   })
 
   if (!productVariant) {
@@ -45,7 +52,13 @@ export default async function ProductVariantPage({
           className="h-auto w-full rounded-3xl object-cover"
         />
 
-        <div className="px-5">{/* VARIANTES */}</div>
+        <div className="px-5">
+          {/* VARIANTES */}
+          <VariantSelector
+            selectedVariantSlug={productVariant.slug}
+            variants={productVariant.product.variants}
+          />
+        </div>
 
         <div className="px-5">
           <h2 className="text-lg font-semibold">
