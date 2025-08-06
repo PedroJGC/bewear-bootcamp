@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'd4lgxe9bm8juw.cloudfront.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'fsc-projects-static.s3.us-east-1.amazonaws.com',
+      },
     ],
   },
 }

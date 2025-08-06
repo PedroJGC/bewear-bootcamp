@@ -13,26 +13,30 @@ export default async function Home() {
   return (
     <div>
       <Header />
-      <div className="px-5 space-y-6">
-        <Image
-          src="/banner-01.png"
-          alt="Leve uma vida com estilo"
-          height={0}
-          width={0}
-          sizes="100vw"
-          className="w-full h-auto"
-        />
+      <div className="space-y-6">
+        <div className="px-5">
+          <Image
+            src="/banner-01.png"
+            alt="Leve uma vida com estilo"
+            height={0}
+            width={0}
+            sizes="100vw"
+            className="w-full h-auto"
+          />
+        </div>
 
         <ProductList title="Mais Vendidos" products={products} />
 
-        <Image
-          src="/banner-02.png"
-          alt="Leve uma vida com estilo"
-          height={0}
-          width={0}
-          sizes="100vw"
-          className="w-full h-auto"
-        />
+        <div className="px-5">
+          <Image
+            src="/banner-02.png"
+            alt="Leve uma vida com estilo"
+            height={0}
+            width={0}
+            sizes="100vw"
+            className="w-full h-auto"
+          />
+        </div>
       </div>
     </div>
   )

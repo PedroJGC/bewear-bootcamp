@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import type { productTable, productVariantTable } from '@/db/schema'
 
-//import { formatCentsToBRL } from '@/helpers/money'
+import { formatCentsToBRL } from '@/helpers/money'
 
 interface ProductItemProps {
   product: typeof productTable.$inferSelect & {
@@ -28,9 +28,9 @@ export default function ProductItem({ product }: ProductItemProps) {
         <p className="text-muted-foreground truncate text-xs font-medium">
           {product.description}
         </p>
-        {/* <p className="truncate text-sm font-semibold">
+        <p className="truncate text-sm font-semibold">
           {formatCentsToBRL(firstVariant.priceInCents)}
-        </p> */}
+        </p>
       </div>
     </Link>
   )
