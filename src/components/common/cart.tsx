@@ -2,7 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { ShoppingBasketIcon } from 'lucide-react'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 import { getCart } from '@/actions/get-cart'
 import { Button } from '@/components/ui/button'
