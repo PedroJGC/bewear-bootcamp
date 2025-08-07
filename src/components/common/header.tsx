@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui/sheet'
+import Cart from './cart'
 
 export default function Header() {
   const { data: session } = authClient.useSession()
@@ -75,6 +76,7 @@ export default function Header() {
             </div>
           </SheetContent>
         </Sheet>
+        <Cart />
       </div>
     </header>
   )
