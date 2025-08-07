@@ -24,6 +24,14 @@ export const userTable = pgTable('user', {
     .notNull(),
 })
 
+export const userRelations = relations(userTable, ({ many, one }) => ({
+  shippingAddresses: many(shippingAddressTable),
+  cart: one(cartTable, {
+    fields: [userTable.id],
+    references: [cartTable.userId],
+  }),
+}))
+
 export const sessionTable = pgTable('session', {
   id: text('id').primaryKey(),
   expiresAt: timestamp('expires_at').notNull(),
@@ -75,11 +83,9 @@ export const categoryTable = pgTable('category', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
 })
 
-export const categoryRelations = relations(categoryTable, ({ many }) => {
-  return {
-    products: many(productTable),
-  }
-})
+export const categoryRelations = relations(categoryTable, ({ many }) => ({
+  products: many(productTable),
+}))
 
 export const productTable = pgTable('product', {
   id: uuid().primaryKey().defaultRandom(),
@@ -92,15 +98,13 @@ export const productTable = pgTable('product', {
   createdAt: timestamp('created_at').notNull().defaultNow(),
 })
 
-export const productRelations = relations(productTable, ({ one, many }) => {
-  return {
-    category: one(categoryTable, {
-      fields: [productTable.categoryId],
-      references: [categoryTable.id],
-    }),
-    variants: many(productVariantTable),
-  }
-})
+export const productRelations = relations(productTable, ({ one, many }) => ({
+  category: one(categoryTable, {
+    fields: [productTable.categoryId],
+    references: [categoryTable.id],
+  }),
+  variants: many(productVariantTable),
+}))
 
 export const productVariantTable = pgTable('product_variant', {
   id: uuid().primaryKey().defaultRandom(),
@@ -117,14 +121,12 @@ export const productVariantTable = pgTable('product_variant', {
 
 export const productVariantRelations = relations(
   productVariantTable,
-  ({ one }) => {
-    return {
-      product: one(productTable, {
-        fields: [productVariantTable.productId],
-        references: [productTable.id],
-      }),
-    }
-  }
+  ({ one }) => ({
+    product: one(productTable, {
+      fields: [productVariantTable.productId],
+      references: [productTable.id],
+    }),
+  })
 )
 
 export const shippingAddressTable = pgTable('shipping_address', {

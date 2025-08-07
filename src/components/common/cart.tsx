@@ -37,6 +37,7 @@ export default function Cart() {
         </SheetHeader>
 
         <div className="flex h-full flex-col px-5 pb-5">
+          {cartIsLoading && <div>carregando...</div>}
           <div className="flex h-full max-h-full flex-col overflow-hidden">
             <ScrollArea className="h-full">
               <div className="flex h-full flex-col gap-8">

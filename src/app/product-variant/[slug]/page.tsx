@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { db } from '@/db'
 import { productTable, productVariantTable } from '@/db/schema'
 import { formatCentsToBRL } from '@/helpers/money'
+import AddToCartButton from './components/add-to-cart-button'
 import ProductActions from './components/product-actions'
 import VariantSelector from './components/variant-selector'
 
@@ -71,18 +72,6 @@ export default async function ProductVariantPage({
           <h3 className="text-lg font-semibold">
             {formatCentsToBRL(productVariant.priceInCents)}
           </h3>
-        </div>
-
-        <div className="px-5">{/* QUANTIDADE */}</div>
-
-        <div className="flex flex-col px-5 space-y-4">
-          {/* BOTÕES */}
-          <Button className="rounded-full" size="lg" variant="outline">
-            Adicionar à sacola
-          </Button>
-          <Button className="rounded-full" size="lg">
-            Comprar agora
-          </Button>
         </div>
 
         <ProductActions productVariantId={productVariant.id} />
