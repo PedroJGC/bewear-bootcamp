@@ -8,7 +8,7 @@ import { shippingAddressTable } from '@/db/schema'
 import { auth } from '@/lib/auth'
 
 import {
-  CreateShippingAddressSchema,
+  type CreateShippingAddressSchema,
   createShippingAddressSchema,
 } from './schema'
 

@@ -71,6 +71,7 @@ export const finishOrder = async () => {
       throw new Error('Failed to create order')
     }
     orderId = order.id
+    // biome-ignore lint/style/useConsistentArrayType: ignore
     const orderItemsPayload: Array<typeof orderItemTable.$inferInsert> =
       cart.items.map((item) => ({
         orderId: order.id,

@@ -8,7 +8,7 @@ import { cartTable } from '@/db/schema'
 import { auth } from '@/lib/auth'
 
 import {
-  UpdateCartShippingAddressSchema,
+  type UpdateCartShippingAddressSchema,
   updateCartShippingAddressSchema,
 } from './schema'
 
