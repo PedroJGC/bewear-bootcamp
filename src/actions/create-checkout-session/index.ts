@@ -14,7 +14,7 @@ import {
 import { auth } from '@/lib/auth'
 
 import {
-  CreateCheckoutSessionSchema,
+  type CreateCheckoutSessionSchema,
   createCheckoutSessionSchema,
 } from './schema'
 
