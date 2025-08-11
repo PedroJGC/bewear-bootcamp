@@ -7,7 +7,7 @@ import { db } from '@/db'
 import { cartItemTable, cartTable } from '@/db/schema'
 import { auth } from '@/lib/auth'
 
-import { AddProductToCartSchema, addProductToCartSchema } from './schema'
+import { type AddProductToCartSchema, addProductToCartSchema } from './schema'
 
 export const addProductToCart = async (data: AddProductToCartSchema) => {
   addProductToCartSchema.parse(data)
